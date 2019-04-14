@@ -14,12 +14,7 @@ class MainActivity : FlutterActivity() {
         MethodChannel(flutterView, CHANNEL).setMethodCallHandler { call, result ->
             if (call.method == "getBatteryLevel") {
                 val batteryLevel = getBatteryLevel()
-
-                if (batteryLevel != -1) {
-                    result.success(batteryLevel)
-                } else {
-                    result.error("UNAVAILABLE", "Battery level not available.", null)
-                }
+                result.success(batteryLevel)
             } else {
                 result.notImplemented()
             }
@@ -27,6 +22,6 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun getBatteryLevel(): Int {
-        return 555
+        return 99
     }
 }
