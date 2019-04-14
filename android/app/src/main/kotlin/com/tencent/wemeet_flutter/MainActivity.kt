@@ -12,16 +12,29 @@ class MainActivity : FlutterActivity() {
         super.onCreate(savedInstanceState)
         GeneratedPluginRegistrant.registerWith(this)
         MethodChannel(flutterView, CHANNEL).setMethodCallHandler { call, result ->
-            if (call.method == "getBatteryLevel") {
-                val batteryLevel = getBatteryLevel()
-                result.success(batteryLevel)
+            if (call.method == "getStringFromNative") {
+                val str = getStringFromNative();  // of from ndk
+                result.success(str)
+            } else if (call.method == "getStringFromCpp") {
+                val str = getStringFromCpp();  // of from ndk
+                result.success(str)
             } else {
                 result.notImplemented()
             }
         }
     }
 
-    private fun getBatteryLevel(): Int {
-        return 99
+    private fun getStringFromNative(): String {
+        return "I come from Native"
+    }
+
+    external fun getStringFromCpp(): String // 88
+
+    companion object {
+
+        // Used to load the 'native-lib' library on application startup.
+        init {
+            System.loadLibrary("native-lib")
+        }
     }
 }

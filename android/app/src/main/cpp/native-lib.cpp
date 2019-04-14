@@ -2,9 +2,9 @@
 #include <string>
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_comtencent_wemeet_flutter_MainActivity_stringFromJNI(
+Java_com_tencent_wemeet_1flutter_MainActivity_getStringFromCpp(
         JNIEnv* env,
         jobject /* this */) {
-    std::string hello = "Hello from C++";
+    std::string hello = "I come from C++";
     return env->NewStringUTF(hello.c_str());
 }

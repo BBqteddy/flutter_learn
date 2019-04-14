@@ -24,20 +24,33 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   static const platform = const MethodChannel('samples.flutter.io/battery');
 
-  // Get battery level.
-  String _batteryLevel = 'Unknown battery level.';
+  String _str = 'Unknown string.';
 
-  Future<Null> _getBatteryLevel() async {
-    String batteryLevel;
+  Future<Null> _getStringFromNative() async {
+    String str;
     try {
-      final int result = await platform.invokeMethod('getBatteryLevel');
-      batteryLevel = 'Battery level at $result % .';
+      final String result = await platform.invokeMethod('getStringFromNative');
+      str = result;
     } on PlatformException catch (e) {
-      batteryLevel = "Failed to get battery level: '${e.message}'.";
+      str = "Failed to get string native: '${e.message}'.";
     }
 
     setState(() {
-      _batteryLevel = batteryLevel;
+      _str = str;
+    });
+  }
+
+  Future<Null> _getStringFromCpp() async {
+    String str;
+    try {
+      final String result = await platform.invokeMethod('getStringFromCpp');
+      str = result;
+    } on PlatformException catch (e) {
+      str = "Failed to get string cpp: '${e.message}'.";
+    }
+
+    setState(() {
+      _str = str;
     });
   }
 
@@ -49,10 +62,14 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             new RaisedButton(
-              child: new Text('Get Battery Level'),
-              onPressed: _getBatteryLevel,
+              child: new Text('Get From Native'),
+              onPressed: _getStringFromNative,
             ),
-            new Text(_batteryLevel),
+            new RaisedButton(
+              child: new Text('Get From C++'),
+              onPressed: _getStringFromCpp,
+            ),
+            new Text(_str),
           ],
         ),
       ),
