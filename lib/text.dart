@@ -26,7 +26,13 @@ class TextAndStyle extends StatelessWidget {
                   fontFamily: 'Courier',
                   background: Paint()..color = Colors.yellow,
                   decoration: TextDecoration.underline,
-                  decorationStyle: TextDecorationStyle.dashed))
+                  decorationStyle: TextDecorationStyle.dashed)),
+          Text.rich(TextSpan(children: [
+            TextSpan(text: 'Home: '),
+            TextSpan(
+                text: 'https://www.qq.com',
+                style: TextStyle(color: Colors.blue))
+          ]))
         ],
       )),
     );
