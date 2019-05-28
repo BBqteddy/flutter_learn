@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wemeet_flutter/image.dart';
 import 'package:wemeet_flutter/text.dart';
 import 'package:wemeet_flutter/button.dart';
+import 'package:wemeet_flutter/views/input_form.dart';
 import 'package:wemeet_flutter/views/switch_checkbox.dart';
 
 void main() => runApp(new MyApp());
@@ -74,6 +75,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 }));
               },
             ),
+            FlatButton(
+              child: Text('输入框及表单'),
+              textColor: Colors.deepOrange,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return InputForm();
+                }));
+              },
+            )
           ],
         ),
       ),
