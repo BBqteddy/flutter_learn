@@ -5,7 +5,9 @@ import 'package:wemeet_flutter/button.dart';
 import 'package:wemeet_flutter/views/focus.dart';
 import 'package:wemeet_flutter/views/form_field.dart';
 import 'package:wemeet_flutter/views/input_form.dart';
+import 'package:wemeet_flutter/views/row_column.dart';
 import 'package:wemeet_flutter/views/switch_checkbox.dart';
+import 'package:wemeet_flutter/views/flexlayout.dart';
 
 void main() => runApp(new MyApp());
 
@@ -103,7 +105,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   return FormTest();
                 }));
               },
-            )
+            ),
+            FlatButton(
+              child: Text('RowColumn'),
+              textColor: Colors.amber,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                  return RowColumn();
+                }));
+              },
+            ),
+            FlatButton(
+              child: Text('FlexLayout'),
+              textColor: Colors.amber,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                  return FlexLayout();
+                }));
+              },
+            ),
           ],
         ),
       ),
