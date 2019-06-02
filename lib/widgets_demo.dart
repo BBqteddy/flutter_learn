@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:wemeet_flutter/image.dart';
 import 'package:wemeet_flutter/text.dart';
 import 'package:wemeet_flutter/button.dart';
+import 'package:wemeet_flutter/views/flow_layout.dart';
 import 'package:wemeet_flutter/views/focus.dart';
 import 'package:wemeet_flutter/views/form_field.dart';
 import 'package:wemeet_flutter/views/input_form.dart';
+import 'package:wemeet_flutter/views/padding.dart';
 import 'package:wemeet_flutter/views/row_column.dart';
+import 'package:wemeet_flutter/views/stack_positioned.dart';
 import 'package:wemeet_flutter/views/switch_checkbox.dart';
 import 'package:wemeet_flutter/views/flexlayout.dart';
+import 'package:wemeet_flutter/views/wrap_layout.dart';
 
 void main() => runApp(new MyApp());
 
@@ -121,6 +125,33 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (ctx) {
                   return FlexLayout();
+                }));
+              },
+            ),
+            FlatButton(
+              child: Text('WrapLayout'),
+              textColor: Colors.amber,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                  return WrapLayout();
+                }));
+              },
+            ),
+            FlatButton(
+              child: Text('FlowLayout'),
+              textColor: Colors.amber,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                  return FlowLayout();
+                }));
+              },
+            ),
+            FlatButton(
+              child: Text('StackPositioned'),
+              textColor: Colors.amber,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                  return StackPositioned();
                 }));
               },
             ),

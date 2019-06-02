@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
 class MyList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return ListView(
       scrollDirection: Axis.horizontal,
       children: <Widget>[
