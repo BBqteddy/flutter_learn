@@ -20,4 +20,4 @@ imooc的视频 dart & flutter  -- done
 https://flutterchina.club/
 https://book.flutterchina.club/ -- ing
 
-进度：https://book.flutterchina.club/chapter3/input_and_form.html
+进度：https://book.flutterchina.club/chapter6/gridview.html
